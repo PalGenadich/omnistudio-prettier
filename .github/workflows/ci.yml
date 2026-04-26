@@ -1,0 +1,28 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v6
+
+            - name: Use Node.js LTS
+              uses: actions/setup-node@v6
+              with:
+                  node-version: lts/*
+
+            - name: Install dependencies
+              working-directory: omnistudio-formatter
+              run: npm install
+
+            - name: Run tests
+              working-directory: omnistudio-formatter
+              run: npm test

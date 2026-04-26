@@ -1,0 +1,157 @@
+{
+    "name": "omnistudio-prettier",
+    "icon": "images/logo.png",
+    "displayName": "Omnistudio Prettier",
+    "description": "Automatically formats Omnistudio metadata XML on retrieve, with on-demand formatting commands.",
+    "repository": "https://github.com/PalGenadich/omnistudio-prettier",
+    "license": "GPL-3.0",
+    "version": "1.0.2",
+    "publisher": "pavlo-kashko",
+    "engines": {
+        "vscode": "^1.85.0"
+    },
+    "categories": [
+        "Formatters",
+        "Other"
+    ],
+    "keywords": [
+        "salesforce",
+        "omnistudio",
+        "omni",
+        "Vlocity",
+        "DataRaptor",
+        "Data Mapper",
+        "Flexcard",
+        "Integration Procedure",
+        "Omniscript",
+        "sfdx",
+        "sf",
+        "xml",
+        "JSON"
+    ],
+    "activationEvents": [
+        "workspaceContains:sfdx-project.json"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "omnistudio-prettier.formatDirectory",
+                "title": "Omnistudio: Format All Files in Directory"
+            },
+            {
+                "command": "omnistudio-prettier.formatWorkspace",
+                "title": "Omnistudio: Format All Files in Workspace"
+            },
+            {
+                "command": "omnistudio-prettier.retrieve",
+                "title": "Omnistudio: Retrieve This Source from Org"
+            },
+            {
+                "command": "omnistudio-prettier.deploy",
+                "title": "Omnistudio: Deploy This Source to Org"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "omnistudio-prettier.formatDirectory",
+                    "when": "explorerResourceIsFolder",
+                    "group": "omnistudio@1"
+                },
+                {
+                    "command": "omnistudio-prettier.retrieve",
+                    "when": "explorerResourceIsFolder || resourceFilename =~ /\\.(os|oip|ouc|rpt)-meta\\.xml$/",
+                    "group": "omnistudio@2"
+                },
+                {
+                    "command": "omnistudio-prettier.deploy",
+                    "when": "explorerResourceIsFolder || resourceFilename =~ /\\.(os|oip|ouc|rpt)-meta\\.xml$/",
+                    "group": "omnistudio@2"
+                }
+            ],
+            "editor/context": [
+                {
+                    "command": "omnistudio-prettier.retrieve",
+                    "when": "resourceFilename =~ /\\.(os|oip|ouc|rpt)-meta\\.xml$/",
+                    "group": "omnistudio@2"
+                },
+                {
+                    "command": "omnistudio-prettier.deploy",
+                    "when": "resourceFilename =~ /\\.(os|oip|ouc|rpt)-meta\\.xml$/",
+                    "group": "omnistudio@2"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Omnistudio Prettier",
+            "properties": {
+                "omnistudio-prettier.showNotifications": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show a notification after formatting completes."
+                },
+                "omnistudio-prettier.indent": {
+                    "type": "string",
+                    "default": "\t",
+                    "enum": [
+                        "\t",
+                        "  ",
+                        "    "
+                    ],
+                    "enumDescriptions": [
+                        "Tab",
+                        "2 Spaces",
+                        "4 Spaces"
+                    ],
+                    "description": "Indentation used when formatting Omnistudio files. Using Tabs minimizes the formatted file size increase."
+                }
+            }
+        },
+        "languages": [
+            {
+                "id": "omnistudio-xml",
+                "aliases": [
+                    "Omnistudio XML"
+                ],
+                "extensions": [
+                    ".os-meta.xml",
+                    ".oip-meta.xml",
+                    ".ouc-meta.xml",
+                    ".rpt-meta.xml"
+                ]
+            }
+        ],
+        "capabilities": {
+            "documentFormattingProvider": true
+        },
+        "configurationDefaults": {
+            "[omnistudio-xml]": {
+                "editor.defaultFormatter": "pavlo-kashko.omnistudio-prettier",
+                "editor.formatOnSave": true
+            }
+        },
+        "grammars": [
+            {
+                "language": "omnistudio-xml",
+                "scopeName": "text.xml.omnistudio",
+                "path": "./omnistudio.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.json": "json"
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "build": "node build.js",
+        "package": "node build.js && vsce package"
+    },
+    "dependencies": {
+        "@salesforce/core": "^8.28.4",
+        "@salesforce/source-deploy-retrieve": "^12.34.2"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.85.0",
+        "esbuild": "^0.25.12"
+    }
+}

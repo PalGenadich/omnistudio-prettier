@@ -1,0 +1,35 @@
+{
+    "name": "Omnistudio XML",
+    "scopeName": "text.xml.omnistudio",
+    "fileTypes": [],
+    "patterns": [
+        {
+            "include": "#omnistudio-json-element"
+        },
+        {
+            "include": "text.xml"
+        }
+    ],
+    "repository": {
+        "omnistudio-json-element": {
+            "begin": "(<(?:dataSourceConfig|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|customJavaScript|expectedInputJson|expectedOutputJson)>)",
+            "end": "(</(?:dataSourceConfig|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|customJavaScript|expectedInputJson|expectedOutputJson)>)",
+            "beginCaptures": {
+                "1": {
+                    "name": "entity.name.tag.xml"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "entity.name.tag.xml"
+                }
+            },
+            "contentName": "meta.embedded.block.json",
+            "patterns": [
+                {
+                    "include": "source.json"
+                }
+            ]
+        }
+    }
+}
