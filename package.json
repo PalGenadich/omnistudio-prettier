@@ -5,7 +5,7 @@
     "description": "Automatically formats Omnistudio metadata XML on retrieve, with on-demand formatting commands.",
     "repository": "https://github.com/PalGenadich/omnistudio-prettier",
     "license": "GPL-3.0",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "pavlo-kashko",
     "engines": {
         "vscode": "^1.85.0"

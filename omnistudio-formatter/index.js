@@ -10,9 +10,9 @@ const OMNISTUDIO_FILE_PATTERN = /\.(oip|os|ouc|rpt)-meta\.xml$/i;
 
 const METADATA_JSON_FIELDS = {
     OmniUiCard: new Set(["dataSourceConfig", "propertySetConfig", "sampleDataSourceResponse", "stylingConfiguration"]),
-    OmniIntegrationProcedure: new Set(["customJavaScript"]),
-    OmniScript: new Set(["propertySetConfig"]),
-    OmniDataTransform: new Set(["expectedInputJson", "expectedOutputJson"]),
+    OmniIntegrationProcedure: new Set(["customJavaScript", "elementTypeComponentMapping", "propertySetConfig"]),
+    OmniScript: new Set(["elementTypeComponentMapping", "propertySetConfig"]),
+    OmniDataTransform: new Set(["expectedInputJson", "expectedOutputJson", "previewJsonData", "transformValuesMappings"]),
 };
 
 function isOmnistudioFile(filePath) {

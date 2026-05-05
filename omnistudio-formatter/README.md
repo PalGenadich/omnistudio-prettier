@@ -118,9 +118,9 @@ All functions return a result object:
 | File extension  | Metadata type                   | JSON fields formatted                                                                       |
 | --------------- | ------------------------------- | ------------------------------------------------------------------------------------------- |
 | `.os-meta.xml`  | OmniScript                      | `propertySetConfig`                                                                         |
-| `.oip-meta.xml` | OmniIntegrationProcedure        | `customJavaScript`                                                                          |
+| `.oip-meta.xml` | OmniIntegrationProcedure        | `customJavaScript`, `elementTypeComponentMapping`, `propertySetConfig`                      |
 | `.ouc-meta.xml` | OmniUiCard (FlexCard)           | `dataSourceConfig`, `propertySetConfig`, `sampleDataSourceResponse`, `stylingConfiguration` |
-| `.rpt-meta.xml` | OmniDataTransform (Data Mapper) | `expectedInputJson`, `expectedOutputJson`                                                   |
+| `.rpt-meta.xml` | OmniDataTransform (Data Mapper) | `expectedInputJson`, `expectedOutputJson`, `previewJsonData`, `transformValuesMappings`     |
 
 ## License
 

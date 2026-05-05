@@ -12,7 +12,7 @@ A VS Code extension that formats Salesforce Omnistudio metadata XML files. It pr
 - **Minify on deploy** — before deploying, embedded JSON is compacted to reduce payload size; the file is re-formatted after deploy completes
 - **Format directory** — right-click any folder in the Explorer and format all Omnistudio files inside it
 - **Format workspace** — format every Omnistudio file in the open workspace in one command
-- **Pretty JSON** — expands minified JSON stored in XML fields (OmniScript `propertySetConfig`, FlexCard `dataSourceConfig`, Integration Procedure `customJavaScript`, Data Mapper `expectedInputJson` / `expectedOutputJson`)
+- **Pretty JSON** — expands minified JSON stored in Omnistudio XML fields
 - **Sorted Data Mapper items** — `omniDataTransformItem` entries are sorted by `globalKey` so field-level diffs are meaningful
 
 ## Supported file types

@@ -12,8 +12,8 @@
     ],
     "repository": {
         "omnistudio-json-element": {
-            "begin": "(<(?:dataSourceConfig|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|customJavaScript|expectedInputJson|expectedOutputJson)>)",
-            "end": "(</(?:dataSourceConfig|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|customJavaScript|expectedInputJson|expectedOutputJson)>)",
+            "begin": "(<(?:customJavaScript|dataSourceConfig|elementTypeComponentMapping|expectedInputJson|expectedOutputJson|previewJsonData|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|transformValuesMappings)>)",
+            "end": "(</(?:customJavaScript|dataSourceConfig|elementTypeComponentMapping|expectedInputJson|expectedOutputJson|previewJsonData|propertySetConfig|sampleDataSourceResponse|stylingConfiguration|transformValuesMappings)>)",
             "beginCaptures": {
                 "1": {
                     "name": "entity.name.tag.xml"
